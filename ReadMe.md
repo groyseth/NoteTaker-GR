@@ -2,6 +2,7 @@
     
 ## Badges  
   ![badmath](https://img.shields.io/github/languages/top/nielsenjared/badmath)
+  
 ## Description  
 ![Untitled_ Jan 24, 2022 2_37 PM](https://user-images.githubusercontent.com/90479839/150863145-2692e5d2-39e2-4a18-90af-687c771e1dc7.gif)
 
