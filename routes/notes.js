@@ -6,7 +6,7 @@ const uuid = require('../helper/uuid');
 const fs = require('fs')
 
 
-
+// uses delete method and loop the object array to find the correct id
 router.delete('/notes/:id' , (req, res) => {
    const deleteNotes = req.params.id;
 
@@ -26,7 +26,7 @@ fs.readFile(filename, 'utf8', function(err, data){
     });
 });
 
-
+// uses get method when the user requests info, the server reads that data
 router.get('/notes', (req, res) => {
 
     console.log(`${req.method}`);
@@ -34,7 +34,7 @@ router.get('/notes', (req, res) => {
     console.log(req.params);
 
 });
-
+// uses post method and sends the requested data form the data base
 router.post('/notes', (req, res) => {
     console.info(`${req.method} request received to add a note`);
 

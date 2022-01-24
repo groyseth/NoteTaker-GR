@@ -1,11 +1,5 @@
 const express = require('express');
 const path = require('path');
-// const fs = require('fs');
-const filename = require("./db/db.json")
-const util = require('util');
-// const api = require('./routes/index')
-
-
 
 const PORT = process.env.PORT || 3001;
 
@@ -30,20 +24,7 @@ app.get('/notes', (req, res) =>
 //API routing
 
 app.use('/', require("./routes"))
-// app.get("/api/notes", (req, res) => {
-//   res.json(db)
-// })
 
-// app.post("/api/notes", (req, res) => {
-//   console.log(req.body)
-//   res.json(db)
-// })
-
-// const writeToFile = (destination, content) =>
-//   fs.writeFile(destination, JSON.stringify(content, null, 4), (err) =>
-//     err ? console.error(err) : console.info(`\nData written to ${destination}`)
-//   );
-  ///modular writefile
 
   app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT} 🚀`)
