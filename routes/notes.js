@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const db = require("../db/db.json");
 const filename = "./db/db.json"
 const { readFromFile, readAndAppend } = require('../helper/jsUtils');
 const uuid = require('../helper/uuid');
@@ -12,18 +11,24 @@ router.delete('/notes/:id' , (req, res) => {
 
 fs.readFile(filename, 'utf8', function(err, data){
     
-        var notes = JSON.parse(data);
-        var filterNotes = notes.filter(note => note.id !== deleteNotes)
-        console.log(filterNotes);
+        var removeNotes = JSON.parse(data);
 
-        fs.writeFile(filename, JSON.stringify(filterNotes), (err) => {
+        var notesFliter = removeNotes.filter(note => note.id !== deleteNotes)
+        console.log(notesFliter);
+
+        fs.writeFile(filename, JSON.stringify(notesFliter), (err) => {
             if (err) {
-                console.log(err);
+                console.info(err);
                 return;
             }
             res.json(req.body);
         })
+        if(err){
+            console.info(err);
+            return;
+        }
     });
+    
 });
 
 // uses get method when the user requests info, the server reads that data
