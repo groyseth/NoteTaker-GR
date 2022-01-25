@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const filename = "./db/db.json"
 const { readFromFile, readAndAppend } = require('../helper/jsUtils');
-const uuid = require('../helper/uuid');
-const fs = require('fs')
+// const uuid = require('../helper/uuid');
+const fs = require('fs');
+const { randomUUID } = require('crypto');
 
 
 // uses delete method and loop the object array to find the correct id
@@ -12,7 +13,8 @@ router.delete('/notes/:id' , (req, res) => {
 fs.readFile(filename, 'utf8', function(err, data){
     
         var removeNotes = JSON.parse(data);
-
+        console.log(removeNotes);
+        console.log(deleteNotes);
         var notesFliter = removeNotes.filter(note => note.id !== deleteNotes)
         console.log(notesFliter);
 
@@ -49,7 +51,7 @@ router.post('/notes', (req, res) => {
         const note = {
             title,
             text,
-            id: uuid(),
+            id: randomUUID()
         };
 
         readAndAppend(note, filename);
